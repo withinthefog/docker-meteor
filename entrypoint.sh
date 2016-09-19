@@ -135,8 +135,10 @@ if [ -e ${BUNDLE_DIR}/programs/server ]; then
    set -e
 
    echo "Installing NPM prerequisites..."
+   # Using taobao npm registry
+   npm config set registry https://registry.npm.taobao.org
    # Install all NPM packages
-   npm install
+   npm install --loglevel=http
    popd
 else
    echo "Unable to locate server directory in ${BUNDLE_DIR}; hold on: we're likely to fail"
