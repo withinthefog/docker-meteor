@@ -139,6 +139,10 @@ if [ -e ${BUNDLE_DIR}/programs/server ]; then
    npm config set registry https://registry.npm.taobao.org
    # Install all NPM packages
    npm install --loglevel=http
+   # fix bcrypt errors
+   echo 'reinstalling bcrypt...'
+   rm -R npm/node_modules/bcrypt
+   npm install bcrypt
    popd
 else
    echo "Unable to locate server directory in ${BUNDLE_DIR}; hold on: we're likely to fail"
