@@ -15,7 +15,7 @@ RUN apt-get update && \
    rm -Rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Install cnpm
-RUN npm i -g cnpm
+RUN npm install cnpm -g --registry=https://registry.npm.taobao.org
 
 # Make sure we have a directory for the application
 RUN mkdir -p /var/www
