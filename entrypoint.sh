@@ -136,13 +136,13 @@ if [ -e ${BUNDLE_DIR}/programs/server ]; then
 
    echo "Installing NPM prerequisites..."
    # Using taobao npm registry
-   npm config set registry https://registry.npm.taobao.org
+   #cnpm config set registry https://registry.npm.taobao.org
    # Install all NPM packages
-   npm install --loglevel=http
+   cnpm install --loglevel=http
    # fix bcrypt errors
    echo 'reinstalling bcrypt...'
    rm -R npm/node_modules/bcrypt
-   npm install bcrypt
+   cnpm install bcrypt
    popd
 else
    echo "Unable to locate server directory in ${BUNDLE_DIR}; hold on: we're likely to fail"

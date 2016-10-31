@@ -2,6 +2,10 @@
 # METEOR-VERSION 1.2.1
 FROM debian:jessie
 
+# change apt-get source to 163 mirror
+RUN mv /etc/apt/sources.list /etc/apt/sources.list.bak
+COPY sources.list.jessie /etc/apt/sources.list
+
 # Install git, curl
 RUN apt-get update && \
    apt-get install -y git curl build-essential python && \
@@ -9,6 +13,9 @@ RUN apt-get update && \
    apt-get install -y nodejs jq && \
    apt-get clean && \
    rm -Rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+# Install cnpm
+RUN npm i -g cnpm
 
 # Make sure we have a directory for the application
 RUN mkdir -p /var/www
